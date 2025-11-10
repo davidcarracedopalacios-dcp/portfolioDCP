@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      David Carracedo Palacios - Consultor en Ciberseguridad | Pentesting y Auditorías de Seguridad
+    </title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="David Carracedo Palacios, consultor especializado en ciberseguridad con 3 años de experiencia. Servicios de pentesting, auditorías de seguridad, análisis de vulnerabilidades y hardening. Certificado CEH y CC."
+    />
+    <meta
+      name="keywords"
+      content="ciberseguridad, pentesting, auditorías seguridad, consultor ciberseguridad, análisis vulnerabilidades"
+    />
+    <meta name="author" content="David Carracedo Palacios" />
+    <link rel="canonical" href="https://davidcarracedo.com/" />
+    <meta name="last-modified" content="2024-12-19" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="David Carracedo Palacios - Consultor en Ciberseguridad"
+    />
+    <meta
+      property="og:description"
+      content="Especialista en pentesting y auditorías de seguridad con certificaciones CEH y CC. 3 años de experiencia protegiendo activos digitales."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://davidcarracedo.com/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="David Carracedo Palacios - Consultor en Ciberseguridad"
+    />
+    <meta
+      name="twitter:description"
+      content="Especialista en pentesting y auditorías de seguridad con certificaciones CEH y CC."
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "David Carracedo Palacios",
+        "jobTitle": "Consultor en Ciberseguridad",
+        "description": "Consultor especializado en ciberseguridad con 3 años de experiencia en pentesting, auditorías de seguridad y análisis de vulnerabilidades",
+        "email": "davidcarracedopalacios@gmail.com",
+        "url": "https://davidcarracedo.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/david-carracedo-palacios/",
+          "https://github.com/davidcarracedopalacios-dcp"
+        ],
+        "knowsAbout": [
+          "Ciberseguridad",
+          "Pentesting",
+          "Auditorías de Seguridad",
+          "Análisis de Vulnerabilidades",
+          "Hardening"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Ethical Hacker (CEH)",
+            "credentialCategory": "certification",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "EC-COUNCIL"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified in Cybersecurity (CC)",
+            "credentialCategory": "certification",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "ISC2"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos -->
+    <style>
+      :root {
+        --bg: #020617;
+        --bg-alt: #020817;
+        --header-bg: #020617;
+        --card-bg: #020617;
+        --border: #1f2937;
+        --border-soft: #111827;
+        --accent: #22c55e;
+        --accent-soft: rgba(34, 197, 94, 0.18);
+        --accent-strong: rgba(34, 197, 94, 0.4);
+        --text: #e5e7eb;
+        --text-soft: #9ca3af;
+        --text-dim: #6b7280;
+        --radius: 8px;
+        --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.75);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 0 0, #0b1120 0, #020617 50%);
+        color: var(--text);
+      }
+
+      /* Top bar estilo terminal */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(2, 6, 23, 0.98);
+        border-bottom: 1px solid #0f172a;
+        backdrop-filter: blur(10px);
+      }
+
+      .topbar-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        color: var(--accent);
+      }
+
+      .brand span.prompt {
+        color: var(--accent);
+      }
+
+      .brand span.name {
+        color: #e5e7eb;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+      }
+
+      nav a {
+        color: var(--text-soft);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 2px;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: var(--accent);
+        transition: width 0.2s ease;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Layout principal */
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      section {
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: var(--accent);
+        text-align: center;
+        margin: 40px 0 24px;
+      }
+
+      .section-title span.muted {
+        color: var(--text-soft);
+      }
+
+      .section-subtitle {
+        max-width: 700px;
+        margin: 0 auto 28px;
+        font-size: 14px;
+        color: var(--text-soft);
+        text-align: center;
+      }
+
+      /* About me */
+      .about-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.3fr);
+        gap: 24px;
+        align-items: start;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        font-size: 14px;
+        color: var(--text-soft);
+        line-height: 1.7;
+      }
+
+      .about-bullets {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--accent);
+        font-size: 12px;
+        margin-top: 10px;
+      }
+
+      .terminal-card {
+        background: #0b1220;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        box-shadow: var(--shadow-card);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      .terminal-card .prompt {
+        color: var(--accent);
+      }
+
+      @media (max-width: 600px) {
+        .about-wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Sección hero */
+      #inicio {
+        margin-top: 24px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 24px;
+        align-items: start;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hero-main {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        padding: 28px 26px;
+        box-shadow: var(--shadow-card);
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+        justify-self: center;
+      }
+
+      .hero-eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        font-size: 44px;
+        line-height: 1.15;
+        margin: 8px 0 8px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .hero-title span.accent {
+        color: var(--accent);
+      }
+
+      .hero-lead {
+        font-size: 15px;
+        color: var(--text-soft);
+        line-height: 1.6;
+        margin-bottom: 22px;
+      }
+
+      .hero-meta {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .pill {
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        padding: 6px 10px;
+        font-size: 12px;
+        color: var(--text-soft);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .pill strong {
+        color: var(--text);
+      }
+
+      .hero-actions {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      /* Avatar circular estilo badge */
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 999px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 12px;
+        border: 2px solid rgba(34, 197, 94, 0.45);
+        box-shadow:
+          0 0 0 6px rgba(34, 197, 94, 0.08),
+          0 12px 30px rgba(34, 197, 94, 0.25);
+        background: #0b1120;
+      }
+
+      .btn-primary {
+        border-radius: 999px;
+        padding: 8px 16px;
+        border: 1px solid var(--accent-strong);
+        background: radial-gradient(
+          circle at 0 0,
+          #22c55e 0,
+          #16a34a 40%,
+          #15803d 100%
+        );
+        color: #ecfdf5;
+        font-size: 13px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 12px 30px rgba(34, 197, 94, 0.4);
+      }
+
+      .btn-secondary {
+        border-radius: 999px;
+        padding: 8px 14px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.9);
+        font-size: 13px;
+        text-decoration: none;
+        color: var(--text-soft);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-secondary:hover {
+        color: var(--text);
+        border-color: var(--accent-soft);
+      }
+
+      .btn-primary span.icon,
+      .btn-secondary span.icon {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+      }
+
+      /* Eliminamos estilos del panel lateral para diseño centrado */
+
+      /* Experiencia */
+      .xp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .xp-card {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.96);
+        padding: 20px 22px 18px;
+        box-shadow: var(--shadow-card);
+      }
+
+      .xp-header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .xp-role {
+        font-weight: 600;
+      }
+
+      .xp-company {
+        font-size: 13px;
+        color: var(--text-soft);
+        margin-bottom: 4px;
+      }
+
+      .xp-location {
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+
+      .xp-dates {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      .xp-body {
+        font-size: 13px;
+        color: var(--text-soft);
+      }
+
+      .xp-body ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 6px 0 0;
+      }
+
+      .xp-body li {
+        margin-bottom: 4px;
+      }
+
+      .xp-body li::before {
+        content: "> ";
+        color: var(--accent);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* Certificaciones */
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      @media (max-width: 720px) {
+        .cert-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .cert-card {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: #020617;
+        padding: 18px 18px 14px;
+        box-shadow: var(--shadow-card);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cert-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 0 0,
+          rgba(34, 197, 94, 0.16),
+          transparent 60%
+        );
+        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .cert-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cert-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        border: 1px solid var(--accent-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        background: radial-gradient(circle at 0 0, #22c55e 0, #14532d 85%);
+      }
+
+      .cert-icon span {
+        font-size: 18px;
+        color: #ecfdf5;
+      }
+
+      .cert-title {
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .cert-org {
+        font-size: 12px;
+        color: var(--text-soft);
+        margin-bottom: 6px;
+      }
+
+      .cert-meta {
+        font-size: 11px;
+        color: #bbf7d0;
+        background: rgba(22, 163, 74, 0.14);
+        border-radius: 999px;
+        padding: 4px 8px;
+        display: inline-block;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+        margin-bottom: 6px;
+      }
+
+      .cert-body {
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      /* Habilidades */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .skills-card {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.96);
+        padding: 14px 14px 10px;
+      }
+
+      .skills-card-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .skills-card ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      .skills-card li::before {
+        content: "- ";
+        color: var(--accent);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* Proyectos y contacto (placeholder sencillo) */
+      .projects-list,
+      .contact-block {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.96);
+        padding: 18px 18px 14px;
+        font-size: 13px;
+        color: var(--text-soft);
+      }
+
+      .projects-list p,
+      .contact-block p {
+        margin: 0 0 8px;
+      }
+
+      .contact-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+      }
+
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px 26px;
+        font-size: 11px;
+        color: var(--text-dim);
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      @media (max-width: 600px) {
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra superior -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="prompt">&gt; </span><span class="name">david.carracedo</span>
+        </div>
+        <nav>
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#certificaciones">Certificaciones</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page">
+      <!-- INICIO / HERO -->
+      <section id="inicio">
+        <div class="hero">
+          <div class="hero-main">
+            <img
+              src="./assets/foto-about.jpg.png"
+              alt="Foto de David Carracedo Palacios"
+              class="avatar"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/120?text=Foto';"
+            />
+            <div class="hero-eyebrow">&gt; initializing_security_consultant.exe</div>
+            <h1 class="hero-title">
+              DAVID CARRACEDO
+            </h1>
+            <p class="hero-lead">CONSULTOR EN CIBERSEGURIDAD</p>
+
+            <div class="hero-meta">
+              <div class="pill"><strong>+3 años</strong>&nbsp;en ciberseguridad</div>
+              <div class="pill">Experiencia en sector aéreo y entornos críticos</div>
+              <div class="pill">Perfil híbrido técnico &amp; gestión de riesgos</div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="mailto:davidcarracedopalacios@gmail.com" class="btn-primary">
+                <span class="icon">&gt;</span>
+                <span>CONTÁCTAME</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/david-carracedo-palacios/"
+                target="_blank"
+                rel="noreferrer"
+                class="btn-secondary"
+              >
+                <span class="icon">ln</span>
+                <span>Ver perfil en LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Diseño centrado: retirado panel lateral -->
+        </div>
+      </section>
+
+      <!-- SOBRE MÍ -->
+      <section id="sobre-mi">
+        <h2 class="section-title">&gt; whoami</h2>
+        <div class="about-wrapper">
+          <div class="about-text">
+            <p>
+              Soy un consultor especializado en ciberseguridad con más de 3 años de experiencia
+              protegiendo activos digitales y fortaleciendo la postura de seguridad de organizaciones.
+            </p>
+            <p>
+              Mi enfoque combina técnicas de seguridad ofensiva y defensiva, permitiendo identificar
+              vulnerabilidades desde la perspectiva del atacante e implementar controles efectivos para
+              mitigar riesgos.
+            </p>
+            <div class="about-bullets">
+              &gt; Especializado en pentesting y análisis de vulnerabilidades<br />
+              &gt; Certificado por EC-COUNCIL e ISC2<br />
+              &gt; Enfoque práctico y orientado a resultados
+            </div>
+          </div>
+          <div class="terminal-card">
+            <div><span class="prompt">$</span> cat personal_info.txt</div>
+            <br />
+            <div>Nombre: David Carracedo Palacios</div>
+            <div>Rol: Consultor en Ciberseguridad</div>
+            <div>Experiencia: 3+ años</div>
+            <div>Idiomas: Español (nativo), Inglés (B2)</div>
+            <div>Estado: Disponible para proyectos</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIA -->
+      <section id="experiencia">
+        <h2 class="section-title">&gt; experience <span class="muted">--verbose</span></h2>
+
+        <div class="xp-list">
+          <!-- Puesto 1 -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Consultor de Ciberseguridad - Hacking</div>
+                <div class="xp-company">Audeca Seguridad de la Información · Jornada completa</div>
+                <div class="xp-location">
+                  Madrid, Comunidad de Madrid, España · Híbrido
+                </div>
+              </div>
+              <div class="xp-dates">may. 2024 - actualidad</div>
+            </div>
+            <div class="xp-body">
+              <ul>
+                <li>
+                  Auditoría de clientes de importancia crítica del sector aéreo y otros entornos
+                  regulados.
+                </li>
+                <li>
+                  Planificación y gestión de proyectos de bastionado y parcheado de sistemas,
+                  coordinando con equipos internos.
+                </li>
+                <li>
+                  Supervisión de vulnerabilidades detectadas y seguimiento de su cierre con equipos
+                  de IT y negocio.
+                </li>
+                <li>
+                  Participación en actividades de pentesting y validación técnica de controles de
+                  seguridad.
+                </li>
+                <li>
+                  Revisión de arquitecturas de sistemas críticos y elaboración de recomendaciones de
+                  mejora.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Puesto 2 -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Ingeniero de Ciberseguridad y Redes IoT</div>
+                <div class="xp-company">Myra Control · Jornada completa</div>
+                <div class="xp-location">
+                  Alcalá de Henares, Comunidad de Madrid, España · Híbrido
+                </div>
+              </div>
+              <div class="xp-dates">nov. 2023 - may. 2024</div>
+            </div>
+            <div class="xp-body">
+              <ul>
+                <li>Diseño y operación de redes y seguridad para evaluar la postura de ciberseguridad.</li>
+                <li>
+                  Elaboración de documentación técnica, procedimientos y guías operativas para los
+                  clientes.
+                </li>
+                <li>
+                  Soporte técnico y coordinación con clientes en modalidad presencial y remota.
+                </li>
+                <li>
+                  Participación en eventos y proyectos multidisciplinares con foco en seguridad de
+                  redes e IoT.
+                </li>
+                <li>
+                  Uso intensivo de herramientas como Nessus, Fortinet, Elastic, Nozomi, RadFlow,
+                  Wireshark, entre otras.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Puesto 3 -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Técnico de Auditoría de Sistemas</div>
+                <div class="xp-company">ASTUR · Jornada completa</div>
+                <div class="xp-location">España</div>
+              </div>
+              <div class="xp-dates">ene. 2023 - oct. 2023</div>
+            </div>
+            <div class="xp-body">
+              <ul>
+                <li>
+                  Seguimiento de la implantación de recomendaciones derivadas de pentesting y
+                  auditorías previas.
+                </li>
+                <li>
+                  Redacción de informes técnicos de control y soporte a auditorías internas y
+                  externas.
+                </li>
+                <li>
+                  Gestión de proyectos del departamento de IT, incluyendo coordinación con
+                  proveedores.
+                </li>
+                <li>
+                  Revisión de controles de seguridad y elaboración de informes orientados a negocio.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CERTIFICACIONES -->
+      <section id="certificaciones">
+        <h2 class="section-title">&gt; certifications.list()</h2>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <div class="cert-inner">
+              <div class="cert-icon">
+                <span>🛡️</span>
+              </div>
+              <div class="cert-title">CEH</div>
+              <div class="cert-org">Certified Ethical Hacker · EC-COUNCIL</div>
+              <div class="cert-meta">[ACTIVE] · Pentesting · Ethical Hacking</div>
+              <div class="cert-body">
+                Formación y certificación orientada a técnicas de hacking ético, fases del
+                pentesting, explotación de vulnerabilidades y reporte orientado a negocio.
+              </div>
+            </div>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-inner">
+              <div class="cert-icon">
+                <span>☰</span>
+              </div>
+              <div class="cert-title">CC</div>
+              <div class="cert-org">Certified in Cybersecurity · ISC2</div>
+              <div class="cert-meta">
+                [ACTIVE] · Security Fundamentals · Risk Management
+              </div>
+              <div class="cert-body">
+                Fundamentos sólidos en seguridad de la información, gestión de riesgos,
+                operaciones de seguridad, seguridad de redes y controles de acceso.
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- HABILIDADES -->
+      <section id="habilidades">
+        <h2 class="section-title">
+          &gt; skills <span class="muted">--grouped-by(domain)</span>
+        </h2>
+
+        <div class="skills-grid">
+          <div class="skills-card">
+            <div class="skills-card-title">/pentesting</div>
+            <ul>
+              <li>Metodologías de pentesting y red team lite</li>
+              <li>Identificación y explotación básica de vulnerabilidades</li>
+              <li>Elaboración de informes y recomendaciones</li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">/vulnerability_management</div>
+            <ul>
+              <li>Nessus y otras plataformas de escaneo</li>
+              <li>Priorización según criticidad y negocio</li>
+              <li>Seguimiento de planes de remediación</li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">/network_security</div>
+            <ul>
+              <li>Seguridad en redes corporativas e industriales</li>
+              <li>Fortinet, segmentación y control de tráfico</li>
+              <li>Monitorización con Elastic, Nozomi, etc.</li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">/infra &amp; tooling</div>
+            <ul>
+              <li>Docker y virtualización (VMware)</li>
+              <li>Linux, Windows Server y entornos mixtos</li>
+              <li>Wireshark, análisis de tráfico y troubleshooting</li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">/governance &amp; risk</div>
+            <ul>
+              <li>Análisis y evaluación de riesgos</li>
+              <li>Soporte a auditorías y cumplimiento</li>
+              <li>Traducción técnica-negocio de requisitos</li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">/soft_skills</div>
+            <ul>
+              <li>Comunicación con equipos técnicos y directivos</li>
+              <li>Gestión de proyectos de seguridad</li>
+              <li>Documentación clara y orientada a acción</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="proyectos">
+        <h2 class="section-title">
+          &gt; projects <span class="muted">--coming-soon</span>
+        </h2>
+        <div class="projects-list">
+          <p>
+            Estoy preparando una sección de proyectos donde detallaré laboratorios de pentesting,
+            pruebas de concepto y automatizaciones relacionadas con gestión de vulnerabilidades y
+            hardening.
+          </p>
+          <p>
+            Mientras tanto, puedes revisar algunos repositorios en
+            <a
+              href="https://github.com/davidcarracedopalacios-dcp"
+              target="_blank"
+              rel="noreferrer"
+              class="contact-link"
+              >GitHub</a
+            >.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto">
+        <h2 class="section-title">&gt; contact.init()</h2>
+        <div class="about-wrapper">
+          <!-- Reuso del grid para dos columnas: info + formulario -->
+          <div>
+            <div class="contact-block">
+              <p><strong>Información de Contacto</strong></p>
+              <p>Email: <a href="mailto:davidcarracedopalacios@gmail.com" class="contact-link">davidcarracedopalacios@gmail.com</a></p>
+              <p>LinkedIn: <a href="https://www.linkedin.com/in/david-carracedo-palacios/" target="_blank" rel="noreferrer" class="contact-link">Perfil</a></p>
+              <p>GitHub: <a href="https://github.com/davidcarracedopalacios-dcp" target="_blank" rel="noreferrer" class="contact-link">Repositorio</a></p>
+            </div>
+            <div class="terminal-card" style="margin-top:10px;">
+              <div><span class="prompt">$</span> echo "Disponibilidad"</div>
+              <br />
+              <div>&gt; Disponible para proyectos de consultoría</div>
+              <div>&gt; Auditorías de seguridad</div>
+              <div>&gt; Pentesting y evaluaciones</div>
+              <div>&gt; Formación en ciberseguridad</div>
+            </div>
+          </div>
+
+          <form class="contact-block" onsubmit="event.preventDefault(); alert('Gracias, me pondré en contacto contigo.');">
+            <p><strong>Enviar Mensaje</strong></p>
+            <div style="display:grid; gap:10px;">
+              <input type="text" name="nombre" placeholder="Tu nombre" style="background:#0f172a;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:13px;" required />
+              <input type="email" name="email" placeholder="Tu email" style="background:#0f172a;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:13px;" required />
+              <input type="text" name="asunto" placeholder="Asunto" style="background:#0f172a;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:13px;" />
+              <textarea name="mensaje" placeholder="Tu mensaje" rows="6" style="background:#0f172a;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:13px;"></textarea>
+              <button type="submit" class="btn-primary" style="justify-content:center;">ENVIAR MENSAJE</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <span>© <span id="year"></span> David Carracedo Palacios</span>
+      <span>Portfolio técnico en evolución constante.</span>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Readdy Agent Widget -->
+    <script
+      src="https://readdy.ai/api/public/assistant/widget?projectId=738c05e7-a833-484b-aa20-95cb9676a3eb"
+      mode="hybrid"
+      voice-show-transcript="true"
+      theme="dark"
+      size="compact"
+      accent-color="#10B981"
+      button-base-color="#000000"
+      button-accent-color="#10B981"
+      defer
+    ></script>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Carracedo Palacios - Consultor en Ciberseguridad | Pentesting y Auditorías de Seguridad</title>
+    <meta name="description" content="David Carracedo Palacios, consultor especializado en ciberseguridad con 3 años de experiencia. Servicios de pentesting, auditorías de seguridad, análisis de vulnerabilidades y hardening. Certificado CEH y CC." />
+    <meta name="keywords" content="ciberseguridad, pentesting, auditorías seguridad, consultor ciberseguridad, análisis vulnerabilidades" />
+    <meta name="author" content="David Carracedo Palacios" />
+    <link rel="canonical" href="https://davidcarracedo.com/" />
+    <meta name="last-modified" content="2024-12-19" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="David Carracedo Palacios - Consultor en Ciberseguridad" />
+    <meta property="og:description" content="Especialista en pentesting y auditorías de seguridad con certificaciones CEH y CC. 3 años de experiencia protegiendo activos digitales." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://davidcarracedo.com/" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="David Carracedo Palacios - Consultor en Ciberseguridad" />
+    <meta name="twitter:description" content="Especialista en pentesting y auditorías de seguridad con certificaciones CEH y CC." />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "David Carracedo Palacios",
+      "jobTitle": "Consultor en Ciberseguridad",
+      "description": "Consultor especializado en ciberseguridad con 3 años de experiencia en pentesting, auditorías de seguridad y análisis de vulnerabilidades",
+      "email": "davidcarracedopalacios@gmail.com",
+      "url": "https://davidcarracedo.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/david-carracedo-palacios/",
+        "https://github.com/davidcarracedopalacios-dcp"
+      ],
+      "knowsAbout": ["Ciberseguridad", "Pentesting", "Auditorías de Seguridad", "Análisis de Vulnerabilidades", "Hardening"],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Certified Ethical Hacker (CEH)",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "EC-COUNCIL"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "Certified in Cybersecurity (CC)",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "ISC2"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Readdy Agent Widget -->
+    <script 
+      src="https://readdy.ai/api/public/assistant/widget?projectId=738c05e7-a833-484b-aa20-95cb9676a3eb"
+      mode="hybrid"
+      voice-show-transcript="true"
+      theme="dark"
+      size="compact"
+      accent-color="#10B981"
+      button-base-color="#000000"
+      button-accent-color="#10B981"
+      defer
+    ></script>
+  </body>
+</html>
